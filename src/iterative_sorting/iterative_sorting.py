@@ -17,12 +17,20 @@ print(selection_sort([5, 3, 6, 2, 10]))
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-  arrLen = len(arr)
-  for x in range(arrLen):
-    for y in range(0, arrLen - x - 1):
-      if(arr[y] > arr[y + 1]):
-        arr[y], arr[y + 1] = arr[y + 1], arr[y]
-  return arr
+    arrLen = len(arr)
+    sorted = False
+    while not sorted:
+        num_of_swaps = 0
+        for k in range(0, arrLen-1):
+            if arr[k] > arr[k+1]:
+                num_of_swaps += 1
+                placeholder = arr[k+1]
+                arr[k+1] = arr[k]
+                arr[k] = placeholder
+
+        if not num_of_swaps:
+            sorted = True
+    return arr
 
 print(bubble_sort([5, 3, 6, 2, 10]))
 
