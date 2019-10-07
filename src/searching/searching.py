@@ -10,19 +10,26 @@ def linear_search(arr, target):
 
 print(linear_search([2, 4, 6, 9, 5], 100))
 
+import math
 # STRETCH: write an iterative implementation of Binary Search
 def binary_search(arr, target):
+    arrLen = len(arr)
+    if len(arr) == 0:
+        return -1 # array empty
 
-  if len(arr) == 0:
-    return -1 # array empty
-
-  low = 0
-  high = len(arr)-1
-
-  # TO-DO: add missing code
-
-  return -1 # not found
-
+    low = 0
+    high = arrLen - 1
+    # TO-DO: add missing code
+    while low <= high:
+        mid = math.floor((high + low) / 2)
+        middleItem = arr[mid]
+        if target == middleItem:
+            return mid
+        if middleItem < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1 # not found
 
 # STRETCH: write a recursive implementation of Binary Search
 def binary_search_recursive(arr, target, low, high):
